@@ -1,0 +1,24 @@
+
+<div class="card my-3" >
+    <div class="card-header">
+      add department
+    </div>
+    <div style="width:400px ;" class="mt-3">
+<label class="ms-3" for="">id :</label>
+<input class="ms-3"  [(ngModel)]="dept_id" type="text" name="" id="" >
+</div>
+<div style="width:400px ;" class="mt-3">
+    <label class="ms-3" for="">department name</label>
+    <input  class="ms-3" [(ngModel)]="dept_name" type="text" name="" id="">
+</div>
+<div style="width:400px ;" class="mt-3">
+    <label  class="ms-3"  for="">location</label>
+    <select class="ms-3" [(ngModel)]="dept_location" name="" id="">
+        <option value="alex">alex</option>
+        <option value="cairo">cairo</option>
+        <option value="smart village">smart village</option>
+        <option value="mansoura">mansoura</option>
+    </select>
+</div>
+<button (click)="save()" class="btn btn-success my-3 ms-3" style="width: 100px;">add</button>
+</div>

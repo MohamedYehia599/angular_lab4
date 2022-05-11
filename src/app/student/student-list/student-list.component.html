@@ -1,0 +1,18 @@
+<div class="card my-3" >
+    <div class="card-header">
+      students
+    </div>
+
+<table class="table-bordered">
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>department id </th>
+    </thead>
+<tbody>
+    <tr *ngFor="let item of students">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.dept_id}}</td>
+    </tr>
+</tbody>
