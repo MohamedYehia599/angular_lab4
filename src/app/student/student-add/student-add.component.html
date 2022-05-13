@@ -2,17 +2,36 @@
     <div class="card-header">
       add student
     </div>
+    <!--
+
+
+<button (click)="save()" class="btn btn-success my-3 ms-3" style="width: 100px;">add</button> -->
+<form #stud_add="ngForm" (submit)="save()">
     <div style="width:400px ;" class="mt-3">
-<label class="ms-3" for="">id :</label>
-<input class="ms-3"  [(ngModel)]="stud_id" type="text" name="" id="" >
-</div>
-<div style="width:400px ;" class="mt-3">
-    <label class="ms-3" for="">student name</label>
-    <input  class="ms-3" [(ngModel)]="stud_name" type="text" name="" id="">
-</div>
-<div style="width:400px ;" class="mt-3">
-    <label  class="ms-3"  for="">student department id</label>
-    <input  class="ms-3" [(ngModel)]="stud_dept_id" type="text" name="" id="">
-</div>
-<button (click)="save()" class="btn btn-success my-3 ms-3" style="width: 100px;">add</button>
+        <label class="ms-3" for="">id :</label>
+        <input class="ms-3"  [(ngModel)]="stud_id" type="text" name="id" #uid="ngModel" required >
+        <br>
+        <p class="my-2 error" *ngIf="uid.errors?.['required']" >id is required</p>
+        </div>
+        <div style="width:400px ;" class="mt-3">
+            <label class="ms-3" for="">student name</label>
+            <input  class="ms-3" [(ngModel)]="stud_name" type="text" name="name" #uname="ngModel" required minlength="3">
+            <br>
+            <p class="error my-2" *ngIf="uname.errors?.['required'] && uname.touched" >name is required</p>
+            <p class="error my-2" *ngIf="uname.errors?.['minlength']">name cant be less than 3 characters</p>
+        </div>
+        <div style="width:400px ;" class="mt-3">
+            <label  class="ms-3"  for="">student email</label>
+            <input  class="ms-3" [(ngModel)]="stud_email" type="text" name="email" #uemail="ngModel" required pattern="[a-zA-Z0-9.]*@[a-zA-Z0-9]+.[a-zA-z]{2,4}">
+            <p class="error my-2" *ngIf="uemail.errors?.['pattern']">email is invalid</p>
+            <p class="error my-2" *ngIf="uemail.errors?.['required'] && uemail.touched">email is required</p>
+        </div>
+        <div style="width:400px ;" class="mt-3">
+            <label  class="ms-3"  for="">student department id</label>
+            <input  class="ms-3" [(ngModel)]="stud_dept_id" type="text" name="department_id" #dept_id="ngModel" required>
+            <p class="error my-2" *ngIf="dept_id.errors?.['required']">department id is required</p>
+        </div>
+        <input [disabled]="stud_add.invalid" class="btn btn-success ms-3 my-3" type="submit">
+</form>
+<!-- <button (click)="show(stud_add)">show</button> -->
 </div>

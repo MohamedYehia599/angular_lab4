@@ -1,5 +1,5 @@
 export class Student {
-    constructor(public id:number , public name:string , public dept_id:number){
+    constructor(public id:number , public name:string ,public email:string ,public dept_id:number){
 
     }
 }

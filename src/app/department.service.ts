@@ -17,6 +17,13 @@ export class DepartmentService {
   }
   add(id:number,name:string,loc:string){
     this.departments.push(new Department(id,name,loc));
+  };
+  show_details(id:number):any{
+    for(let i=0;i<this.departments.length;i++)
+      if(this.departments[i].id==id) return this.departments[i];
+      
+  
+    return null;
   }
 
 }

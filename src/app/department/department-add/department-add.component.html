@@ -3,22 +3,29 @@
     <div class="card-header">
       add department
     </div>
+    <form #dept_add="ngForm" (submit)="save()">
     <div style="width:400px ;" class="mt-3">
 <label class="ms-3" for="">id :</label>
-<input class="ms-3"  [(ngModel)]="dept_id" type="text" name="" id="" >
+<input class="ms-3"  [(ngModel)]="dept_id" type="text" name="id" #id="ngModel" required="">
+<p class="error my-2" *ngIf="id.errors?.['required'] && id.touched">id is required</p>
 </div>
 <div style="width:400px ;" class="mt-3">
     <label class="ms-3" for="">department name</label>
-    <input  class="ms-3" [(ngModel)]="dept_name" type="text" name="" id="">
+    <input  class="ms-3" [(ngModel)]="dept_name" type="text" name="name" #name="ngModel" required minlength="3">
+    <p class="error my-2" *ngIf="name.errors?.['required']&& name.touched">department name is required </p>
+    <p class="error my-2" *ngIf="name.errors?.['minlength']">name cant be less than 3 characters</p>
 </div>
 <div style="width:400px ;" class="mt-3">
     <label  class="ms-3"  for="">location</label>
-    <select class="ms-3" [(ngModel)]="dept_location" name="" id="">
+    <select class="ms-3" [(ngModel)]="dept_location" name="location" #loc="ngModel" required>
         <option value="alex">alex</option>
         <option value="cairo">cairo</option>
         <option value="smart village">smart village</option>
         <option value="mansoura">mansoura</option>
     </select>
+    <p class="error my-2" *ngIf="loc.errors?.['required'] && loc.touched">location must be entered</p>
 </div>
-<button (click)="save()" class="btn btn-success my-3 ms-3" style="width: 100px;">add</button>
+<button [disabled]="dept_add.invalid" type="submit" class="btn btn-success my-3 ms-3" style="width: 100px;">add</button>
+
+</form>
 </div>

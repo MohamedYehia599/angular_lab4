@@ -15,4 +15,5 @@ export class StudentListComponent implements OnInit {
     this.students=this.stud_service.list();
   }
 
+   
 }

@@ -9,12 +9,14 @@
         <th>id</th>
         <th>name</th>
         <th>location</th>
+        <th>actions</th>
     </thead>
 <tbody>
     <tr *ngFor="let item of departments">
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.loc}}</td>
+        <td><a [routerLink]="['/departments',item.id,'details']" class="btn btn-primary ms-2">details</a></td>
     </tr>
 </tbody>
 
@@ -23,3 +25,6 @@
 
 </table>
 </div>
+<a class="btn  btn-success" [routerLink]="['/departments/add']" routerLinkActive="router-link-active" >add department</a>
+
+<router-outlet></router-outlet>
