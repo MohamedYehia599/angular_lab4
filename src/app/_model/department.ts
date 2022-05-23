@@ -1,5 +1,5 @@
 export class Department {
-    constructor(public id:number, public name:string , public loc:string){
+    constructor(public _id:number, public name:string , public location:string){
 
     }
 }

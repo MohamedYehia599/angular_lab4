@@ -7,17 +7,15 @@
     <thead>
         <th>id</th>
         <th>name</th>
-        <th>email</th>
         <th>department id </th>
         <th>actions</th>
     </thead>
 <tbody>
     <tr *ngFor="let item of students">
-        <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.email}}</td>
-        <td>{{item.dept_id}}</td>
-        <td><a  [routerLink]="['/students',item.id,'details']" class="btn btn-primary ms-2" >details</a></td>
+        <td>{{item._id}}</td>
+        <td>{{item.name}}</td> 
+        <td>{{item.department}}</td>
+        <td><a  [routerLink]="['/students',item._id,'details']" class="btn btn-primary ms-2" >details</a></td>
     </tr>
 </tbody>
 </table>

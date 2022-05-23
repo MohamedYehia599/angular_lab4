@@ -15,7 +15,8 @@ children:[
 ]
 
 
-},]
+},
+]
 
 @NgModule({
   declarations: [

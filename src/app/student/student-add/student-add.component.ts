@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/student.service';
+import { Student } from 'src/app/_model/student';
 
 @Component({
   selector: 'app-student-add',
@@ -11,19 +12,20 @@ import { StudentService } from 'src/app/student.service';
 export class StudentAddComponent implements OnInit {
 
   constructor(public stud_service:StudentService ,public router:Router) { }
-  stud_id:number=0;
-  stud_name:string='';
-  stud_email:string='';
-  stud_dept_id:number=0;
+ stud:Student = new Student(0,'',0);
   
   save(){
-  this.stud_service.add(this.stud_id,this.stud_name,this.stud_email,this.stud_dept_id);
-  this.router.navigateByUrl('students')
+  // this.stud_service.add(this.stud_id,this.stud_name,this.stud_email,this.stud_dept_id);
+      this.stud_service.add(this.stud).subscribe(data=>{
+        console.log(data);
+        this.router.navigateByUrl('students')
+      })
+  
   }
-  show(t:any){
-    console.log(t);
+  // show(t:any){
+  //   console.log(t);
     
-  }
+  // }
 
 
   ngOnInit(): void {
